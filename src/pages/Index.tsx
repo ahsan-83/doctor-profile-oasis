@@ -3,11 +3,20 @@ import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
 import SpecialtiesSection from "@/components/sections/SpecialtiesSection";
+import TreatmentsSection from "@/components/sections/TreatmentsSection";
 import CredentialsSection from "@/components/sections/CredentialsSection";
 import GallerySection from "@/components/sections/GallerySection";
+import BlogSection from "@/components/sections/BlogSection";
 import LocationsSection from "@/components/sections/LocationsSection";
 import ContactSection from "@/components/sections/ContactSection";
 import { useEffect } from "react";
+
+declare global {
+  interface Window {
+    google: any;
+    googleTranslateElementInit: () => void;
+  }
+}
 
 const Index = () => {
   useEffect(() => {
@@ -25,7 +34,7 @@ const Index = () => {
       {
         pageLanguage: "en",
         includedLanguages: "en,bn,hi", // include this for selected languages
-        layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT,
+        layout: window.google.translate.TranslateElement.FloatPosition.TOP_LEFT,
       },
       "google_translate_element"
     );
@@ -40,8 +49,10 @@ const Index = () => {
           <HeroSection />
           <AboutSection />
           <SpecialtiesSection />
+          <TreatmentsSection />
           <CredentialsSection />
           <GallerySection />
+          <BlogSection />
           <LocationsSection />
           <ContactSection />
         </main>
